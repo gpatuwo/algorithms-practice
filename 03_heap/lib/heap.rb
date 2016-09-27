@@ -9,7 +9,22 @@ class BinaryMinHeap
   end
 
   def extract
+    raise "no element to extract" if count == 0
+
+    root = store[0]
+
+    if count > 1
+      # reassign the root to be the last node
+      store[0] = store.pop
+      self.class.heapify_down(store, 0, &prc)
+    else
+      # pop off the one and only el
+      store.pop
+    end
+
+    root
   end
+
 
   def peek
     raise "no element to peek" if count == 0
@@ -18,7 +33,7 @@ class BinaryMinHeap
 
   def push(val)
     store.push(val)
-    # self.class.heapify_up(store,self.count - 1, &prc )
+    self.class.heapify_up(store, self.count - 1, &prc )
     #child_idx?
   end
 
