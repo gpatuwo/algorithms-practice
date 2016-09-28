@@ -13,10 +13,24 @@ class QuickSort
 
   # In-place.
   def self.sort2!(array, start = 0, length = array.length, &prc)
+    prc ||= Proc.new { |el1, el2| el1 <=> el2 }
+
+    return array if length <= 1
+
+    pivot_idx = partition(array, start, length, &prc)
+    left_length = pivot_idx - start
+    right_length = length - (left_length + 1)
+
+    # quicksort the two sides in place
+    sort2!(array, start, left_length, &prc)
+    sort2!(array, pivot_idx + 1, right_length, &prc)
+
+    array
   end
 
-  def self.partition(array, start, length, &prc)
 
+  def self.partition(array, start, length, &prc)
+    prc ||= Proc.new { |el1, el2| el1 <=> el2 }
     # reassign var to a) choose random pivot b)not mess with the start var when iterating over it
     pivot_idx, pivot = start, array[start]
 
@@ -26,7 +40,7 @@ class QuickSort
       # if val < pivot,
         # then swap val and pivot
         # and reassign pivot idx
-      if val < pivot
+      if prc.call(pivot, val) == 1
         array[idx] = array[pivot_idx + 1]
         array[pivot_idx + 1] = pivot
         array[pivot_idx] = val
