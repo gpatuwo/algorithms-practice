@@ -20,7 +20,7 @@ function reverseDigits(num) {
 
 /////////////////////////////////////////////////
 
-// Arrays
+// 5. ARRAYS
 
 // rearrange array in place with even numbers in front (aka O(1) space)
 // PPPP
@@ -59,4 +59,52 @@ function incrementNum (arr) {
 
 /////////////////////////////////////////////////
 
-// 6 Strings
+// 6. STRINGS
+
+// check in-place if palindrome
+function isPalindrome(str) {
+  for (var i = 0, j = str.length - 1; i < j; i++, j--) {
+    if (str.charAt(i) != str.charAt(j)) return false;
+  }
+
+  return true;
+}
+
+// console.log(isPalindrome('cat') === false);
+// console.log(isPalindrome('hannah') === true);
+
+
+// 6.5 test palindromicity
+function isPalindromic(str) {
+  // remove non letters
+  // start from front of string, compare to back of string
+
+  let i = 0, j = str.length - 1;
+  while (i < j) {
+    if (str[i].match(/^[a-z0-9]+$/i) && str[j].match(/^[a-z0-9]+$/i)) {
+      if (str[i].toLowerCase() === str[j].toLowerCase()) {
+        i++;
+        j--;
+      } else {
+        return false;
+      }
+    }
+    else if (!str[i].match(/^[a-z0-9]+$/i)) {i++;}
+    else {j--;}
+  }
+
+  return true;
+}
+
+// console.log(isPalindromic('hannah'));
+// console.log(isPalindromic('cat'));
+// console.log(isPalindromic('hannah han nah'));
+
+
+// 6.6 reverse sentence
+function revSentence(str) {
+  let strArr = str.split(' ');
+  return strArr.reverse().join(' ');
+}
+
+console.log(revSentence('Bob likes Alice') === 'Alice likes Bob');
