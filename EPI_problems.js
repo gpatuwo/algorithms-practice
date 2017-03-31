@@ -64,7 +64,7 @@ function incrementNum (arr) {
 // check in-place if palindrome
 function isPalindrome(str) {
   for (var i = 0, j = str.length - 1; i < j; i++, j--) {
-    if (str.charAt(i) != str.charAt(j)) return false;
+    if (str.charAt(i) !== str.charAt(j)) return false;
   }
 
   return true;
@@ -108,3 +108,10 @@ function revSentence(str) {
 }
 
 console.log(revSentence('Bob likes Alice') === 'Alice likes Bob');
+
+
+/////////////////////////////////////////////////
+
+// 7. Linked Lists
+
+//
