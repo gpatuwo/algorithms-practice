@@ -13,9 +13,9 @@ class LinkedList {
     this.count = 0;
   }
 
-  // add from back
+  // add to back: assign tail's next to be this node, reasign former tail's pointers
 
-  // add from front
+  // add to front: 
 
   // remove from front
 
