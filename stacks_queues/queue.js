@@ -1,4 +1,6 @@
 // FIFO, like array but reverse if taking out
+
+// using javascript's dynamically resized arrays
 class Queue {
   constructor(){
     this.storage = [];
