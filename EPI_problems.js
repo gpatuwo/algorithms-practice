@@ -136,6 +136,7 @@ approaches:
 - itr once, two pointers
 */
 
-length = 4
-k = 2
-1 2 3 4
+
+/////////////////////////////////////////////////
+
+// 8. Stacks and Queues

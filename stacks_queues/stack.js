@@ -21,5 +21,6 @@ class Stack {
     // return the data
   }
 
+  // peek, returns top w/o popping
 
 }
