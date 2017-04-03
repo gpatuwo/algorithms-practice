@@ -107,4 +107,39 @@ function revSentence(str) {
   return strArr.reverse().join(' ');
 }
 
-console.log(revSentence('Bob likes Alice') === 'Alice likes Bob');
+// console.log(revSentence('Bob likes Alice') === 'Alice likes Bob');
+
+
+
+
+/////////////////////////////////////////////////
+
+// 12. HASH TABLES
+
+// 12.1 test for palindromic permutations
+/*
+edified -> deified
+hannnah
+- itr thru letters
+  - store letters and their counts into hash table
+- if word lenght is even, then see if count of every letter is divisible by 2
+- if odd, is count of every but ONE letter is an odd count ?
+*/
+
+function isPermPalindrome(str){
+  let letterCount = {};
+
+  str.split('').forEach( (letter) => {
+    if (letterCount.hasOwnProperty(letter)) {
+      // bc now you've seen the letter an even num of times!!
+      delete letterCount[letter];
+    } else {
+      letterCount[letter] = 1;
+    }
+  });
+
+  return Object.keys(letterCount).length <= 1;
+}
+
+console.log(isPermPalindrome('edified') === true);
+console.log(isPermPalindrome('dog') === false);
