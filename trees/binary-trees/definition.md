@@ -12,7 +12,4 @@
 - **full binary tree**: every node other than the leaves have 2 nodes
 - **perfect binary tree**: full tree where all the leaves are on the same level (sometimes called complete binary tree)
 - **complete binary tree**: like perfect btree but don't care about last level and all nodes are as far left as possible
-![complete b-tree][complete b-tree] (http://web.cecs.pdx.edu/~sheard/course/Cs163/Graphics/CompleteBinary.jpg)
-- ****:
-
-[complete b-tree]:  complete b-tree
+![complete b-tree](http://web.cecs.pdx.edu/~sheard/course/Cs163/Graphics/CompleteBinary.jpg))
