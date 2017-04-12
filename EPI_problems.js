@@ -53,6 +53,17 @@ function incrementNum (arr) {
 
 // console.log(incrementNum([1, 2, 9]).toString() === [1, 3, 0].toString());
 
+// 5.5 delete dups from sorted arr /PPPP
+// *** pay attention to what actually needs to be output so no unnec work done!!
+/*
+  - bc it's a sorted arr, dups are placed after the first mention
+  - what we want to output is number of undup'd numbers
+
+  - if arr empty, return 0
+  - est count = 1
+  - itr thru arr
+    - if previous != current, then count++
+*/
 
 // 5.7 sudoku checker
 
@@ -130,7 +141,7 @@ function isPermPalindrome(str){
   let letterCount = {};
 
   str.split('').forEach( (letter) => {
-    if (letterCount.hasOwnProperty(letter)) {
+    if (letterCount[letter]) {
       // bc now you've seen the letter an even num of times!!
       delete letterCount[letter];
     } else {
@@ -141,5 +152,9 @@ function isPermPalindrome(str){
   return Object.keys(letterCount).length <= 1;
 }
 
-console.log(isPermPalindrome('edified') === true);
-console.log(isPermPalindrome('dog') === false);
+// console.log(isPermPalindrome('edified') === true);
+// console.log(isPermPalindrome('dog') === false);
+
+
+// 12.6 find nearest repeated in arr
+/* */
