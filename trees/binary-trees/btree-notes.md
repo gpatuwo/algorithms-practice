@@ -43,10 +43,6 @@
     - traverse left (all the way down left)
     - traverse right
     - root
-  - complexity
-    - time is O(n)
-    - space is call stack's max depth, so O(h)
-      - remember h's min is O(log n) (complete btree) and max is n (skewed)
 
 ![traversals](https://www.cs.cmu.edu/~adamchik/15-121/lectures/Trees/pix/traversals.bmp)
 
@@ -56,5 +52,18 @@
   - visit node from left (preorder), from below (inorder) and on right (postorder)
 
 ![](https://www.cs.cmu.edu/~adamchik/15-121/lectures/Trees/pix/traversalEuler.bmp)
+
+## Complexity
+For traversals
+  - time is **O(n)**
+  - space is call stack's max depth, so O(h)
+    - remember, h's min is **O(log n)** (balanced trees) and max is O(n) (skewed)
+    - but! can reduce space to O(1) by using existing tree nodes
+  - recursive usually used
+  - if node has **parent field**, use it to reduce time/space
+
+**Note: not all single children (no siblings) are leaves!**
+Ex: 5 is a single child but not a leaf!
+![](http://dyewrv1redcbt.cloudfront.net//wp-content/uploads/Binary-Tree.png)
 
 [great overview of trees](https://www.cs.cmu.edu/~adamchik/15-121/lectures/Trees/trees.html)
