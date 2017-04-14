@@ -64,6 +64,10 @@ For traversals
 
 **Note: not all single children (no siblings) are leaves!**
 Ex: 5 is a single child but not a leaf!
+
 ![](http://dyewrv1redcbt.cloudfront.net//wp-content/uploads/Binary-Tree.png)
 
-[great overview of trees](https://www.cs.cmu.edu/~adamchik/15-121/lectures/Trees/trees.html)
+
+## Extra readings:
+- [great overview of trees](https://www.cs.cmu.edu/~adamchik/15-121/lectures/Trees/trees.html)
+- [practice problems](https://www.cs.cmu.edu/~adamchik/15-121/lectures/Trees/questions.html) / [solutions](https://www.cs.cmu.edu/~adamchik/15-121/lectures/Trees/answers.html)
