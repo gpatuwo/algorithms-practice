@@ -28,6 +28,19 @@ function checkSym(subtreeL, subtreeR) {
 }
 
 
+//////////////////////////////////////
+// EPI 9.12 reconstruct btree from traversal data
+/*
+input: arr of inorder seq values, preorder seq
+output: reconstruct the tree
+
+- make sample tree so can visually see the 2 traversals
+  - know the root is preorder[0]
+*/
+
+
+//////////////////////////////////////
+
 
 // return all single children
 // http://www.geeksforgeeks.org/print-nodes-dont-sibling-binary-tree/
@@ -51,3 +64,13 @@ function singleKids(tree){
 function checkNodes(node) {
   if (node.left === null && node.right === null) return node.data;
 }
+
+//epi 9.2 pt 2 PPP
+/*
+symm when mirror image, so left.right = right.left
+
+what's the input? -> tree
+output is boolean? -> yes
+children field available? -> no
+
+*/
