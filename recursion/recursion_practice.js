@@ -4,7 +4,18 @@ function range(start, end) {
 }
 // console.log(`range(3, 10) = ${range(3, 10)}`);
 
+function recSum1(arr) {
+  if (arr.length === 0) return 0;
+
+  return arr[0] + recSum1(arr.slice(1));
+}
+// console.log(recSum1([1, 2, 3, 4, 5]));
+
 Array.prototype.recSum = function () {
+  if (this.length === 0 ) return 0;
+
+  return this[0] + this.recSum(this.slice(1));
+
 };
 // console.log([1,2,3,4,5].recSum());
 
@@ -13,12 +24,24 @@ Array.prototype.itSum = function () {
 // console.log([1,2,3,4,5].itSum());
 
 function exp(num, power) {
-}
-// console.log(exp(2, 5));
+  if (power === 0 ) return 1;
+  if (power === 1 ) return num;
 
+  return num * exp(num, power - 1);
+}
+// console.log(exp(2, 0));
+// console.log(exp(2, 1));
+// console.log(exp(2, 4));
+// console.log(exp(0, 1000));
+
+// 1, 1, 2, 3, 5, 8, 13
 function fibonacci(n) {
+  if (n <= 2) return 1;
+
+  return fibonacci(n - 1) + fibonacci(n - 2);
 }
 // console.log(fibonacci(5));
+// console.log(fibonacci(7));
 
 
 
@@ -35,4 +58,4 @@ function subsets(array) {
   return subSubsets.concat(newSubsets);
 }
 
-  console.log(`subsets([1, 3, 5]) = ${JSON.stringify(subsets([1, 3, 5]))}`);
+  // console.log(`subsets([1, 3, 5]) = ${JSON.stringify(subsets([1, 3, 5]))}`);
