@@ -5,3 +5,7 @@
 
 #### symmetry
 - test two sides for equality
+
+#### palindromicity
+- comparison of first and last elements
+- splitting into 2 parts, test if part one and re

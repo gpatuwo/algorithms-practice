@@ -111,3 +111,13 @@ function removeKthLastNode(head, k){
 
 
 /////////////////////////////////////////////////
+// 7.10 implrement even-odd merge
+/*
+- create pointers: end of even, beginning of odd, end of odd
+- itr thru list,
+*/
+
+
+
+/////////////////////////////////////////////////
+// 7.11 singly linked list palindromic? 
