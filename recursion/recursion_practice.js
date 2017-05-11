@@ -1,8 +1,11 @@
 "use strict";
 
 function range(start, end) {
+  if (end < start) return [];
+
+  return range(start, end - 1).concat(end);
 }
-// console.log(`range(3, 10) = ${range(3, 10)}`);
+// console.log(range(3, 10));
 
 function recSum1(arr) {
   if (arr.length === 0) return 0;
@@ -19,13 +22,9 @@ Array.prototype.recSum = function () {
 };
 // console.log([1,2,3,4,5].recSum());
 
-Array.prototype.itSum = function () {
-};
-// console.log([1,2,3,4,5].itSum());
-
 function exp(num, power) {
   if (power === 0 ) return 1;
-  if (power === 1 ) return num;
+  // if (power === 1 ) return num; <-- not necessary
 
   return num * exp(num, power - 1);
 }
