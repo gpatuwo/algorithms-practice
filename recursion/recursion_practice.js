@@ -43,18 +43,43 @@ function fibonacci(n) {
 // console.log(fibonacci(7));
 
 
-
+//Write a method, subsets, that will return all subsets of an array. PPP
 function subsets(array) {
   if (array.length === 0) {
     return [[]];
   }
 
-  const firstElement = array[0];
-  const subSubsets = subsets(array.slice(1));
+  let firstElement = array.shift();
+  let subSubsets = subsets(array);
 
-  const newSubsets = subSubsets.map(subSubset => [firstElement].concat(subSubset) );
+// add first val to each of subsets
+  let newSubsets = subSubsets.map(subSubset =>
+     [firstElement].concat(subSubset) );
 
+// add prev return val back on
   return subSubsets.concat(newSubsets);
 }
 
   // console.log(`subsets([1, 3, 5]) = ${JSON.stringify(subsets([1, 3, 5]))}`);
+
+
+// make change
+function makeChange(amt, coins){
+  if (amt === 0) return [[]];
+  // if (coins.every(coin => coin > amt)) return null;
+
+  /* assuming, sorted coins arr...
+    check if biggest coins smaller than amt
+  */
+  for (let i = 0; i < coins.length; i++){
+    if (coins[i] < amt) {
+      var biggestCoin = coins[i];
+      break;
+    }
+  }
+
+  let nextChange = makeChange(amt - biggestCoin, coins);
+  return [biggestCoin].concat(nextChange);
+}
+
+console.log(makeChange(14, [10, 7, 1]));
