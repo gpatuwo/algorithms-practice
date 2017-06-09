@@ -1,42 +1,15 @@
+// EPI 9.1 test if btree is height-balanced
+// PPP
+
+
+//////////////////////////////////////
 // EPI 9.2 test if btree is symmetric
 // PPP
-/*
-symmetry = left + right are mirrored (structurally and value-wise)
-
-test if left is same as right on other branch
-reversively check if node.left === node.right
-
-what if tree is null?
-check null or checkSym
-
-checkSym
-  - bc: if subtreeL AND subtreeR are both null,
-  we've reach end of tree, return true
-  - if subtreeL.value != subtreeR.value, return false
-  - checkSym(subtreeR.left, subtreeL.right) AND vice versa
-*/
-function isSymmetric(tree){
-  return tree === null || checkSym(tree.left, tree.right);
-}
-
-function checkSym(subtreeL, subtreeR) {
-  if (subtreeL === null && subtreeR === null) return true;
-
-  return subtreeL.value === subtreeR.value
-         && checkSym(subtreeR.left, subtreeL.right)
-         && checkSym(subtreeL.left, subtreeR.right);
-}
 
 
 //////////////////////////////////////
 // EPI 9.12 reconstruct btree from traversal data
-/*
-input: arr of inorder seq values, preorder seq
-output: reconstruct the tree
 
-- make sample tree so can visually see the 2 traversals
-  - know the root is preorder[0]
-*/
 
 
 //////////////////////////////////////

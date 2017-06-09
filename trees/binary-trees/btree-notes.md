@@ -7,7 +7,7 @@
 - very flexible data structure, allows subtrees to move around with min effort (...?)
 
 ## Definitions
-- **search path**: sequence from root to node
+- **search path**: sequence from root to node, unique for each node
 - **ancestor**: if a node lies in a node's search path
 - **descendant**: if node has an ancestor (also, descendant of itself)
 - **depth**: number of nodes in search path
