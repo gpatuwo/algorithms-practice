@@ -18,7 +18,9 @@ A **heap** is a specialized *complete* binary tree
   - max (or min) el deletion: **O(log n)**
   - other el search: **O(n)**
 
+
 ## Javascript implementation of heap:
+see [implementation](heap-implementation.js) for full code
 ~~~~javascript
 class Heap { //min heap default
   constructor(comparator) {
@@ -38,33 +40,34 @@ class Heap { //min heap default
   }
 
   deleteMin(){
+    let min = this.data[0];
 
+    // reassign last el as first el
+    this.data[0] = this.data.pop();
+    // reconfigure heap
+    this.heapifyDown();
+
+    return min;
   }
-  /* Compare the new element with its parent. If the
-new element is smaller, than swap it with its
-parent.
- Continue this process until either
-- the new element’s parent is smaller than or
-equal to the new element, or
-- the new element reaches the root (index 0 of
-the array)
-  */
+
   heapifyUp(valIdx){
-    while (valIdx > 0) {
-      let parentIdx = Math.floor((valIdx + 1)/2) - 1;
+    /* for min heap:
+    Compare the new element with its parent. If the
+    new element is smaller, than swap it with its
+    parent.
 
-      // swap if parent is greater
-      if (this.data[parentIdx] > this.data[valIdx]){
-        let parentVal = this.data[parentIdx];
-        this.data[parentIdx] = this.data[valIdx];
-        this.data[valIdx] = parentVal;
-      } else if (this.data[parentIdx] <= this.data[valIdx]) {
-        return;
-      } // don't need to re-heap what's already in order
+    Continue this process until either
+    - the new element’s parent is smaller than or
+    equal to the new element, or
+    - the new element reaches the root (index 0 of
+    the array)
+    */
+  }
 
-      // continue until reach 0
-      valIdx = parentIdx;
-    }
+  heapifyDown(){
+    /* for min heap:
+    Swap the parent with the child while parent has a child that's smaller
+    */
   }
 }
 ~~~~

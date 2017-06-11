@@ -1,6 +1,4 @@
-// epi bootcamp p160
-/*
-*/
+// node this file to run
 
 class Heap { //min heap default
   constructor(comparator) {
@@ -42,18 +40,13 @@ class Heap { //min heap default
         this.data[parentIdx] = child;
         this.data[childIdx] = parentVal;
       } // early return if parent <= child?
-      
+
       // continue until reach 0
       childIdx = parentIdx;
     }
   }
 
-//
-// While the moved element has a value
-// greater than at least one of its children,
-// swap this value with the smaller-valued
-// child.
-  heapifyDown(parentIdx){
+  heapifyDown(parentIdx = 0){
     let parent = this.data[parentIdx],
         leftChildIdx = 2 * parentIdx + 1,
         rightChildIdx = 2 * parentIdx + 2,
@@ -62,23 +55,51 @@ class Heap { //min heap default
 
     while (this.comparator(leftChild, parent) ||
       this.comparator(rightChild, parent)) {
-      //swap with smaller-valued child for min heap
-      let swapChildIdx = this.comparator(leftChild, rightChild) ?
-                         leftChildIdx : rightChildIdx,
-          swapChild = this.data[swapChildIdx];
+      // conditional for if one child is undef
+      // else swap with smaller-valued child for min heap
+      let swapChildIdx;
+      if (!rightChild) {
+        swapChildIdx = leftChildIdx;
+      } else if (!leftChild) {
+        swapChildIdx = rightChildIdx;
+      } else {
+        swapChildIdx =
+        this.comparator(leftChild, rightChild) ? leftChildIdx : rightChildIdx;
+      }
+
+      let swapChild = this.data[swapChildIdx];
+
+      this.data[parentIdx] = swapChild;
+      this.data[swapChildIdx] = parent;
+// refactor...
+      parentIdx = swapChildIdx;
+      leftChildIdx = 2 * parentIdx + 1;
+      rightChildIdx = 2 * parentIdx + 2;
+      leftChild = this.data[leftChildIdx];
+      rightChild = this.data[rightChildIdx];
     }
   }
 }
 
 let heap = new Heap();
-heap.add(4);
-heap.add(1);
-heap.add(7);
 heap.add(9);
+heap.add(8);
+heap.add(6);
+heap.add(5);
+heap.add(1);
+heap.add(4);
+heap.add(7);
+heap.add(3);
+heap.add(10);
 heap.add(2);
 console.log(heap);
-// console.log( heap.deleteMin()); // 1
-// console.log( heap.deleteMin()); // 2
-// console.log( heap.deleteMin()); // 4
-// console.log( heap.deleteMin()); // 7
-// console.log( heap.deleteMin()); // 9
+console.log( heap.deleteMin()); // 1 to 10 in order :)
+console.log( heap.deleteMin()); //
+console.log( heap.deleteMin()); //
+console.log( heap.deleteMin()); //
+console.log( heap.deleteMin()); //
+console.log( heap.deleteMin()); //
+console.log( heap.deleteMin()); //
+console.log( heap.deleteMin()); //
+console.log( heap.deleteMin()); //
+console.log( heap.deleteMin()); //
