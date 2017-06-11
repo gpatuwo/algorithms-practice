@@ -6,7 +6,7 @@ class Heap { //min heap default
     this.comparator = comparator || function(a, b){return a < b;};
   }
 
-  findMin(){
+  findRoot(){
     return this.data[0];
   }
 
@@ -17,15 +17,15 @@ class Heap { //min heap default
     this.heapifyUp(this.data.length - 1);
   }
 
-  deleteMin(){
-    let min = this.data[0];
+  deleteRoot(){
+    let root = this.data[0];
 
     // reassign last el as first el
     this.data[0] = this.data.pop();
     // reconfigure heap
     this.heapifyDown();
 
-    return min;
+    return root;
   }
 
   heapifyUp(childIdx){
@@ -53,53 +53,49 @@ class Heap { //min heap default
         leftChild = this.data[leftChildIdx],
         rightChild = this.data[rightChildIdx];
 
-    while (this.comparator(leftChild, parent) ||
-      this.comparator(rightChild, parent)) {
-      // conditional for if one child is undef
-      // else swap with smaller-valued child for min heap
-      let swapChildIdx;
-      if (!rightChild) {
-        swapChildIdx = leftChildIdx;
-      } else if (!leftChild) {
-        swapChildIdx = rightChildIdx;
-      } else {
-        swapChildIdx =
-        this.comparator(leftChild, rightChild) ? leftChildIdx : rightChildIdx;
-      }
+    if (!leftChild && !rightChild) return;
 
-      let swapChild = this.data[swapChildIdx];
+    let swapChildIdx;
+    if (leftChild && !rightChild) {
+      swapChildIdx = leftChildIdx;
+    } else if (!leftChild && rightChild) {
+      swapChildIdx = rightChildIdx;
+    } else {
+      swapChildIdx =
+      this.comparator(leftChild, rightChild) ? leftChildIdx : rightChildIdx;
+    }
+    let swapChild = this.data[swapChildIdx];
 
+    if (this.comparator(swapChild, parent)) {
       this.data[parentIdx] = swapChild;
       this.data[swapChildIdx] = parent;
-// refactor...
-      parentIdx = swapChildIdx;
-      leftChildIdx = 2 * parentIdx + 1;
-      rightChildIdx = 2 * parentIdx + 2;
-      leftChild = this.data[leftChildIdx];
-      rightChild = this.data[rightChildIdx];
+
+      this.heapifyDown(swapChildIdx);
     }
   }
 }
 
-let heap = new Heap();
-heap.add(9);
-heap.add(8);
-heap.add(6);
-heap.add(5);
-heap.add(1);
-heap.add(4);
-heap.add(7);
-heap.add(3);
-heap.add(10);
-heap.add(2);
-console.log(heap);
-console.log( heap.deleteMin()); // 1 to 10 in order :)
-console.log( heap.deleteMin()); //
-console.log( heap.deleteMin()); //
-console.log( heap.deleteMin()); //
-console.log( heap.deleteMin()); //
-console.log( heap.deleteMin()); //
-console.log( heap.deleteMin()); //
-console.log( heap.deleteMin()); //
-console.log( heap.deleteMin()); //
-console.log( heap.deleteMin()); //
+module.exports = Heap;
+
+// let heap = new Heap();
+// heap.add(9);
+// heap.add(8);
+// heap.add(6);
+// heap.add(5);
+// heap.add(1);
+// heap.add(4);
+// heap.add(7);
+// heap.add(3);
+// heap.add(10);
+// heap.add(2);
+// console.log(heap);
+// console.log( heap.deleteRoot()); // 1-10 in order :)
+// console.log( heap.deleteRoot()); //
+// console.log( heap.deleteRoot()); //
+// console.log( heap.deleteRoot()); //
+// console.log( heap.deleteRoot()); //
+// console.log( heap.deleteRoot()); //
+// console.log( heap.deleteRoot()); //
+// console.log( heap.deleteRoot()); //
+// console.log( heap.deleteRoot()); //
+// console.log( heap.deleteRoot()); //

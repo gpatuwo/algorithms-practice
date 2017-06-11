@@ -26,3 +26,5 @@
 - heaps
   - care about **largest** or **smallest** elements
   - and no need for fast lookup/delete/search
+  - O(log n) insertion
+  - O(log n) deletion (of root)
