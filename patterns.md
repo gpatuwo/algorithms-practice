@@ -21,3 +21,8 @@
   - return last case
 - any steps needed in between?
   - make it happen
+
+#### choosing data structures:
+- heaps
+  - care about **largest** or **smallest** elements
+  - and no need for fast lookup/delete/search
