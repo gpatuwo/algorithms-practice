@@ -65,3 +65,16 @@ function mergeSortedFiles(sortedArrays) {
 
 // let arrs = [[3, 5, 7], [0, 6], [0, 6, 28]];
 // console.log(mergeSortedFiles(arrs));
+
+
+
+//////////////////////////////////////
+// EPI 10.3 sort an almost-sorted array
+
+// if length < 22 js's arr sort would inserttion sort, O(n^2)
+// with min heap we can bring that down to O(n log k)
+function sortAlmostSorted(arr, k) {
+
+}
+let arr = [3, -1, 2, 6, 4, 5, 8];
+console.log(sortAlmostSorted(arr, 2));
