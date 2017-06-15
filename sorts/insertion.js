@@ -1,5 +1,6 @@
 /* Insertion Sort
 - great for sorting short things
+  - JS implements this if arr.length < 22
 
 gist: like sorting cards 1 by 1
 - takes one el in array,
